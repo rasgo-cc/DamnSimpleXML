@@ -32,7 +32,6 @@ XmlTree* XmlParser::read(const QString &fileName)
     static XmlElement *lastElement;
     QVector<XmlElement *> parent;
     QList<XmlAttribute*> al;
-    QString value;
 
     parent.reserve(64); // reserve space for parents/sublevels/subelements
 
@@ -52,7 +51,6 @@ XmlTree* XmlParser::read(const QString &fileName)
         switch(xml.tokenType())
         {
         case QXmlStreamReader::StartElement:
-            qDebug() << level << xml.name().toString();
             element = new XmlElement(0, xml.name().toString());
             al.clear();
             foreach(QXmlStreamAttribute a, xml.attributes().toList()) {

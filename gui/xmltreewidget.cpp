@@ -27,7 +27,6 @@ void XmlTreeWidget::setTree(XmlTree *tree)
 
 void XmlTreeWidget::slotRefresh()
 {
-    qDebug() << "XmlTreeWidget::slotRefresh()";
     clear();
     if(m_tree != 0) {
         if(m_tree->root() != 0) {
