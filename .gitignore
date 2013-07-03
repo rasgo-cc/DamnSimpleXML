@@ -1,3 +1,8 @@
+# Qt
+Makefile*
+/build
+*.pro.user
+
 # Object files
 *.o
 
