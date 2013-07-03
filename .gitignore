@@ -2,6 +2,7 @@
 Makefile*
 /build
 *.pro.user
+object_script.*
 
 # Object files
 *.o

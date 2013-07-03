@@ -5,6 +5,7 @@
 
 class XmlTree;
 class XmlElement;
+class XmlAttribute;
 
 class XmlTreeWidget : public QTreeWidget
 {
@@ -19,10 +20,12 @@ signals:
 public slots:
     void slotRefresh();
     
-    void updateTree(XmlElement *element);
+    void updateTree(XmlElement *element, QTreeWidgetItem *parent);
 
 private:
     XmlTree *m_tree;
+
+    QString buildAttributeString(QList<XmlAttribute*> list);
 };
 
 #endif // XMLTREEWIDGET_H

@@ -8,3 +8,14 @@ XmlAttribute::XmlAttribute(XmlElement *element, QString name, QString value, QOb
     m_valueStr(value)
 {
 }
+
+QString XmlAttribute::name()
+{
+    return m_name;
+}
+
+QString XmlAttribute::valueStr()
+{
+    return m_valueStr;
+}
+

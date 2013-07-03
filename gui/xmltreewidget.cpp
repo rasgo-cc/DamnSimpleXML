@@ -2,6 +2,7 @@
 
 #include "xmltree.h"
 #include "xmlelement.h"
+#include "xmlattribute.h"
 
 #include <QDebug>
 #include <QHeaderView>
@@ -10,12 +11,13 @@
 XmlTreeWidget::XmlTreeWidget(QWidget *parent) :
     QTreeWidget(parent)
 {
-    header()->close();
-    setColumnCount(1);
-//    QList<QTreeWidgetItem *> items;
-//    for (int i = 0; i < 10; ++i)
-//        items.append(new QTreeWidgetItem((QTreeWidget*)0, QStringList(QString("item: %1").arg(i))));
-//    insertTopLevelItems(0, items);
+    int column;
+    for(column = 0; column < columnCount(); column++) {
+        if(column == 0)
+            header()->setResizeMode(column, QHeaderView::ResizeToContents);
+        else
+            header()->setResizeMode(column, QHeaderView::Interactive);
+    }
 }
 
 void XmlTreeWidget::setTree(XmlTree *tree)
@@ -26,28 +28,41 @@ void XmlTreeWidget::setTree(XmlTree *tree)
 void XmlTreeWidget::slotRefresh()
 {
     qDebug() << "XmlTreeWidget::slotRefresh()";
+    clear();
     if(m_tree != 0) {
-        /*if(m_tree->root() != 0) {
-            updateTree(m_tree->root());
-        }*/
+        if(m_tree->root() != 0) {
+            updateTree(m_tree->root(), 0);
+            topLevelItem(0)->setExpanded(true);
+        }
     }
 }
 
-void XmlTreeWidget::updateTree(XmlElement *element)
+QString XmlTreeWidget::buildAttributeString(QList<XmlAttribute*> list)
 {
-    qDebug() << "XmlTreeWidget::update()";
-    /*static XmlElement *lastElement;
-    static QTreeWidgetItem *lastWidget;
-    static unsigned int level = 0;
+    QString str("");
+    foreach(XmlAttribute *a, list) {
+        str = a->name() + QString("=\"") + a->valueStr() + QString("\" ");
+    }
+    return str;
+}
 
-    QTreeWidgetItem *widgetItem;*/
+void XmlTreeWidget::updateTree(XmlElement *element, QTreeWidgetItem *parent)
+{
+    QTreeWidgetItem *widgetItem;
 
-    /*if(element->parentElement() == 0) // root
-    {
-        qDebug() << "asd";
-        widgetItem = new QTreeWidgetItem(this, QStringList(element->name()));
+    QStringList strList;
+    strList.append(element->name());
+    strList.append(element->valueStr());
+    strList.append(buildAttributeString(element->attributes()));
+    widgetItem = new QTreeWidgetItem(parent, QStringList(strList));
+    widgetItem->setExpanded(true);
+    if(parent == 0)
         insertTopLevelItem(0, widgetItem);
-    }*/
+    else {
+        parent->addChild(widgetItem);
+    }
 
-
+    foreach(XmlElement *e, element->children()) {
+        updateTree(e, widgetItem);
+    }
 }

@@ -11,12 +11,14 @@ class XmlElement : public QObject
 public:
     explicit XmlElement(XmlElement *parentElement, QString name, QObject *parent = 0);
     
+    void setValue(const QString &value);
     void addAttribute(XmlAttribute *attribute);
-    void addAttributes(QList<XmlAttribute*> attributes);
+    void setAttributes(QList<XmlAttribute*> attributes);
     void addChild(XmlElement *child);
     void addChildren(QList<XmlElement*> children);
 
     QString name();
+    QString valueStr();
     XmlElement *parentElement();
     QList<XmlAttribute*> attributes();
     QList<XmlElement*> children();
@@ -28,6 +30,7 @@ public slots:
 private:
     XmlElement *m_parentElement;
     QString m_name;
+    QString m_value;
     QList<XmlAttribute*> m_attributes;
     QList<XmlElement*> m_children;
     

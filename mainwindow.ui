@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>382</width>
+    <height>366</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -37,18 +37,24 @@
       </item>
       <item>
        <widget class="XmlTreeWidget" name="treeWidget">
+        <property name="columnCount">
+         <number>3</number>
+        </property>
         <column>
          <property name="text">
-          <string notr="true">1</string>
+          <string notr="true">Element</string>
          </property>
         </column>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="refresh_pushButton">
-        <property name="text">
-         <string>Refresh</string>
-        </property>
+        <column>
+         <property name="text">
+          <string>Value</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Attributes</string>
+         </property>
+        </column>
        </widget>
       </item>
      </layout>
@@ -60,7 +66,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>382</width>
      <height>21</height>
     </rect>
    </property>
