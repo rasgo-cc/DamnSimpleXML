@@ -7,6 +7,9 @@ namespace Ui {
 class MainWindow;
 }
 
+class XmlParser;
+class XmlTreeWidget;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -14,9 +17,18 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+public slots:
+    void slotBrowseFile();
+    void slotUpdateXmlTree();
     
 private:
     Ui::MainWindow *ui;
+
+    void parseXmlFile(const QString &filePath);
+
+    XmlParser *m_parser;
+    XmlTreeWidget *m_treeWidget;
 };
 
 #endif // MAINWINDOW_H

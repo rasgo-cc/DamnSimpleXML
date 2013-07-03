@@ -9,13 +9,23 @@ QT       += core gui
 TARGET = DamnXML
 TEMPLATE = app
 
+INCLUDEPATH += xml
+INCLUDEPATH += gui
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    xml/xmlelement.cpp
+    xml/xmlelement.cpp \
+    xml/xmltree.cpp \
+    xml/xmlattribute.cpp \
+    xml/xmlparser.cpp \
+    gui/xmltreewidget.cpp
 
 HEADERS  += mainwindow.h \
-    xml/xmlelement.h
+    xml/xmlelement.h \
+    xml/xmltree.h \
+    xml/xmlattribute.h \
+    xml/xmlparser.h \
+    gui/xmltreewidget.h
 
 FORMS    += mainwindow.ui
 
