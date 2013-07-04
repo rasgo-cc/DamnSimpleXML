@@ -40,7 +40,7 @@ QString XmlTreeWidget::buildAttributeString(QList<XmlAttribute*> list)
 {
     QString str("");
     foreach(XmlAttribute *a, list) {
-        str = a->name() + QString("=\"") + a->valueStr() + QString("\" ");
+        str.append(a->name() + QString("=\"") + a->valueStr() + QString("\" "));
     }
     return str;
 }
@@ -52,6 +52,7 @@ void XmlTreeWidget::updateTree(XmlElement *element, QTreeWidgetItem *parent)
     QStringList strList;
     strList.append(element->name());
     strList.append(element->valueStr());
+    //qDebug() << "attr of" << element->name() << ":" << buildAttributeString(element->attributes());
     strList.append(buildAttributeString(element->attributes()));
     widgetItem = new QTreeWidgetItem(parent, QStringList(strList));
     widgetItem->setExpanded(true);
