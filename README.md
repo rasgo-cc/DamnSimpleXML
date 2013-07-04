@@ -1,6 +1,6 @@
-DamnXML
+DamnSimpleXML
 =======
 
 Simple cross-platform XML viewer
 
-![](damnxml.png "DamnXML on Ubuntu 12.04")
+![](screenshot.png "DamnSimpleXML on Ubuntu 12.04")
