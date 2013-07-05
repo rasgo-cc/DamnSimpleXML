@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-TARGET = DamnXML
+TARGET = DamnSimpleXML
 TEMPLATE = app
 
 INCLUDEPATH += xml

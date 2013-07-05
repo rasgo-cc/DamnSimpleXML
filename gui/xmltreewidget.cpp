@@ -25,7 +25,7 @@ void XmlTreeWidget::setTree(XmlTree *tree)
     m_tree = tree;
 }
 
-void XmlTreeWidget::slotRefresh()
+void XmlTreeWidget::slotReload()
 {
     clear();
     if(m_tree != 0) {
@@ -33,6 +33,38 @@ void XmlTreeWidget::slotRefresh()
             updateTree(m_tree->root(), 0);
             topLevelItem(0)->setExpanded(true);
         }
+    }
+}
+
+void XmlTreeWidget::slotFind(const QString &text)
+{
+    QList<QTreeWidgetItem*> il;
+    int col;
+    for(col=0; col < columnCount(); col++)
+            il.append(findItems(text, Qt::MatchContains |  Qt::MatchRecursive, col));
+    m_foundItems = il;
+    if(!il.isEmpty()) {
+        setCurrentItem(il.first());
+    }
+}
+
+void XmlTreeWidget::slotFindPrev()
+{
+    int iCur, iPrev;
+    iCur = m_foundItems.indexOf(currentItem());
+    if(iCur != -1 && iCur > 0) {
+        iPrev = iCur-1;
+        setCurrentItem(m_foundItems.at(iPrev));
+    }
+}
+
+void XmlTreeWidget::slotFindNext()
+{
+    int iCur, iNext;
+    iCur = m_foundItems.indexOf(currentItem());
+    if(iCur != -1 && iCur < m_foundItems.count()-1) {
+        iNext = iCur+1;
+        setCurrentItem(m_foundItems.at(iNext));
     }
 }
 
@@ -56,8 +88,11 @@ void XmlTreeWidget::updateTree(XmlElement *element, QTreeWidgetItem *parent)
     strList.append(buildAttributeString(element->attributes()));
     widgetItem = new QTreeWidgetItem(parent, QStringList(strList));
     widgetItem->setExpanded(true);
-    if(parent == 0)
+    if(parent == 0) {
         insertTopLevelItem(0, widgetItem);
+        m_root.element = element;
+        m_root.widget = widgetItem;
+    }
     else {
         parent->addChild(widgetItem);
     }

@@ -21,6 +21,10 @@ public:
 public slots:
     void slotBrowseFile();
     void slotUpdateXmlTree();
+    void slotReplace();
+    void slotFind(const QString &text);
+    void slotFindPrev();
+    void slotFindNext();
     
 private:
     Ui::MainWindow *ui;

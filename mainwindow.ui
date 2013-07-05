@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>382</width>
-    <height>366</height>
+    <width>357</width>
+    <height>369</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -30,6 +30,27 @@
          <widget class="QPushButton" name="browse_pushButton">
           <property name="text">
            <string>Browse...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLineEdit" name="find_lineEdit"/>
+        </item>
+        <item>
+         <widget class="QToolButton" name="findPrev_toolButton">
+          <property name="text">
+           <string>&lt;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="findNext_toolButton">
+          <property name="text">
+           <string>&gt;</string>
           </property>
          </widget>
         </item>
@@ -57,6 +78,13 @@
         </column>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="refresh_pushButton">
+        <property name="text">
+         <string>Reload</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
    </layout>
@@ -66,7 +94,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>382</width>
+     <width>357</width>
      <height>21</height>
     </rect>
    </property>
