@@ -13,10 +13,17 @@ XmlTreeWidget::XmlTreeWidget(QWidget *parent) :
 {
     int column;
     for(column = 0; column < columnCount(); column++) {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 0, 0)
+        if(column == 0)
+            header()->setSectionResizeMode(column, QHeaderView::ResizeToContents);
+        else
+            header()->setSectionResizeMode(column, QHeaderView::Interactive);
+#else
         if(column == 0)
             header()->setResizeMode(column, QHeaderView::ResizeToContents);
         else
             header()->setResizeMode(column, QHeaderView::Interactive);
+#endif
     }
 }
 
