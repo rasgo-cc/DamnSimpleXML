@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>357</width>
-    <height>369</height>
+    <width>367</width>
+    <height>405</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_3">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -29,28 +29,7 @@
         <item>
          <widget class="QPushButton" name="browse_pushButton">
           <property name="text">
-           <string>Browse...</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QLineEdit" name="find_lineEdit"/>
-        </item>
-        <item>
-         <widget class="QToolButton" name="findPrev_toolButton">
-          <property name="text">
-           <string>&lt;</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QToolButton" name="findNext_toolButton">
-          <property name="text">
-           <string>&gt;</string>
+           <string>Select XML file...</string>
           </property>
          </widget>
         </item>
@@ -79,6 +58,66 @@
        </widget>
       </item>
       <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Find</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="find_lineEdit"/>
+        </item>
+        <item>
+         <widget class="QToolButton" name="findPrev_toolButton">
+          <property name="text">
+           <string>&lt;</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources/icons.qrc">
+            <normaloff>:/arrow-left.png</normaloff>:/arrow-left.png</iconset>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="findNext_toolButton">
+          <property name="text">
+           <string>&gt;</string>
+          </property>
+          <property name="icon">
+           <iconset resource="resources/icons.qrc">
+            <normaloff>:/arrow-right.png</normaloff>:/arrow-right.png</iconset>
+          </property>
+          <property name="autoRaise">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QPushButton" name="expand_pushButton">
+          <property name="text">
+           <string>Expand</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="collapse_pushButton">
+          <property name="text">
+           <string>Collapse</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
        <widget class="QPushButton" name="refresh_pushButton">
         <property name="text">
          <string>Reload</string>
@@ -94,7 +133,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>357</width>
+     <width>367</width>
      <height>21</height>
     </rect>
    </property>
@@ -129,6 +168,8 @@
    <header>xmltreewidget.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="resources/icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

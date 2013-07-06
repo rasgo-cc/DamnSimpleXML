@@ -3,7 +3,7 @@
 # Qt
 Makefile*
 /build
-*.pro.user
+*.pro.user*
 object_script.*
 
 # Object files

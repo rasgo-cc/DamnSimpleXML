@@ -31,9 +31,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->find_lineEdit, SIGNAL(textChanged(QString)),
             this, SLOT(slotFind(QString)));
     connect(ui->findNext_toolButton, SIGNAL(clicked()),
-            this, SLOT(slotFindNext()));
+            m_treeWidget, SLOT(slotFindNext()));
     connect(ui->findPrev_toolButton, SIGNAL(clicked()),
-            this, SLOT(slotFindPrev()));
+            m_treeWidget, SLOT(slotFindPrev()));
+    connect(ui->expand_pushButton, SIGNAL(clicked()),
+            m_treeWidget, SLOT(expandAll()));
+    connect(ui->collapse_pushButton, SIGNAL(clicked()),
+            m_treeWidget, SLOT(collapseAll()));
 
     setWindowTitle("DamnSimpleXML");
 }

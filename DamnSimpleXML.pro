@@ -39,3 +39,6 @@ OBJECTS_DIR = build/tmp/obj
 MOC_DIR = build/tmp/moc
 RCC_DIR = build/tmp/rcc
 UI_DIR = build/tmp/ui
+
+RESOURCES += \
+    resources/icons.qrc
