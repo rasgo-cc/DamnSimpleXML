@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>367</width>
-    <height>405</height>
+    <width>403</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,13 +20,6 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QLineEdit" name="filePath_lineEdit">
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QPushButton" name="browse_pushButton">
           <property name="text">
            <string>Select XML file...</string>
@@ -34,6 +27,13 @@
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="filePath_lineEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="XmlTreeWidget" name="treeWidget">
@@ -60,6 +60,20 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
+         <widget class="QPushButton" name="expand_pushButton">
+          <property name="text">
+           <string>Expand</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="collapse_pushButton">
+          <property name="text">
+           <string>Collapse</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QLabel" name="label">
           <property name="text">
            <string>Find</string>
@@ -79,7 +93,7 @@
             <normaloff>:/arrow-left.png</normaloff>:/arrow-left.png</iconset>
           </property>
           <property name="autoRaise">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -93,29 +107,17 @@
             <normaloff>:/arrow-right.png</normaloff>:/arrow-right.png</iconset>
           </property>
           <property name="autoRaise">
-           <bool>true</bool>
+           <bool>false</bool>
           </property>
          </widget>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
-        <item>
-         <widget class="QPushButton" name="expand_pushButton">
-          <property name="text">
-           <string>Expand</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="collapse_pushButton">
-          <property name="text">
-           <string>Collapse</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+      </item>
+      <item>
+       <widget class="PopupWidget" name="popupWidget" native="true"/>
       </item>
       <item>
        <widget class="QPushButton" name="refresh_pushButton">
@@ -133,8 +135,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>367</width>
-     <height>21</height>
+     <width>403</width>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -166,6 +168,12 @@
    <class>XmlTreeWidget</class>
    <extends>QTreeWidget</extends>
    <header>xmltreewidget.h</header>
+  </customwidget>
+  <customwidget>
+   <class>PopupWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">popupwidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

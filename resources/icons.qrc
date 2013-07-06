@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>arrow-left.png</file>
         <file>arrow-right.png</file>
+        <file>gnome_dialog_warning_32x32.png</file>
     </qresource>
 </RCC>

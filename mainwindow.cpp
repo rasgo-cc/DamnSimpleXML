@@ -15,9 +15,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->menuBar->hide();
     ui->mainToolBar->hide();
-    //ui->statusBar->hide();
+    ui->statusBar->hide();
 
-    ui->filePath_lineEdit->hide();
+    //ui->filePath_lineEdit->hide();
+    ui->popupWidget->hide();
+    ui->refresh_pushButton->hide();
 
     m_parser = new XmlParser();
     //m_treeWidget = new XmlTreeWidget(this);

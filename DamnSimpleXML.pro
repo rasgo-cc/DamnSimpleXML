@@ -20,16 +20,19 @@ SOURCES += main.cpp\
     xml/xmltree.cpp \
     xml/xmlattribute.cpp \
     xml/xmlparser.cpp \
-    gui/xmltreewidget.cpp
+    gui/xmltreewidget.cpp \
+    gui/popupwidget.cpp
 
 HEADERS  += mainwindow.h \
     xml/xmlelement.h \
     xml/xmltree.h \
     xml/xmlattribute.h \
     xml/xmlparser.h \
-    gui/xmltreewidget.h
+    gui/xmltreewidget.h \
+    gui/popupwidget.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    gui/popupwidget.ui
 
 CONFIG(debug, debug|release) {
     DESTDIR = build/debug
